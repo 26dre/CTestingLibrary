@@ -41,8 +41,8 @@ def write_letter_simple(file: TextIOWrapper, letter: chr):
 
 #         ...
 
-def consume_while(read_file: TextIOWrapper, fn: Callable[[chr], bool]):
-    while (curr_letter := read_file.read(1)) != None and fn(curr_letter):
+def consume_while(read_file: TextIOWrapper, predicate: Callable[[chr], bool]):
+    while (curr_letter := read_file.read(1)) != None and predicate(curr_letter):
         continue
 
     if curr_letter != None:
